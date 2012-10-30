@@ -61,6 +61,7 @@ namespace SRCBQuestionnaireStatistic
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveStatistic(availableQNs);
+            MessageBox.Show("保存成功");
         }
 
         private void StatisticToolStripMenuItem_Click(object sender, EventArgs e)
@@ -139,8 +140,13 @@ namespace SRCBQuestionnaireStatistic
 
         private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
         {
-            int index = int.Parse(e.KeyChar.ToString()) - 1;
-            FillAnswerAndPopulateNext(index);
+            int index = -1;
+            if (int.TryParse(e.KeyChar.ToString(), out index))
+            {
+                index = index - 1;
+                FillAnswerAndPopulateNext(index);
+            }
+            //int index = int.Parse(e.KeyChar.ToString()) - 1;
             //suppressEvent = true;
             //int loop = 0;
             //foreach (Answer selected in comboBox1.Items)

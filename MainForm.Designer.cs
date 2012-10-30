@@ -28,42 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("录入");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("清空");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("领导管理");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("分行管理");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("支行领导班子民主测评统计表", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("支行领导班子成员民主测评统计表");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("巡察工作调查问卷");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("农商银行问卷调查统计系统", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7});
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("录入");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("清空");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("领导管理");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("分行管理");
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("支行领导班子民主测评统计表", new System.Windows.Forms.TreeNode[] {
+            treeNode33,
+            treeNode34,
+            treeNode35,
+            treeNode36});
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("支行领导班子成员民主测评统计表");
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("巡察工作调查问卷");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("农商银行问卷调查统计系统", new System.Windows.Forms.TreeNode[] {
+            treeNode37,
+            treeNode38,
+            treeNode39});
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NewQuestionnaireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FillAnswerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UndoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatisticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关于ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.lblSelectedAnswer = new System.Windows.Forms.Label();
+            this.labelQuestionnaireIndex = new System.Windows.Forms.Label();
+            this.labelQuestionnaireName = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.labelAnswer = new System.Windows.Forms.Label();
-            this.labelQuestionnaireName = new System.Windows.Forms.Label();
-            this.labelQuestionnaireIndex = new System.Windows.Forms.Label();
             this.richTxtQuestion = new System.Windows.Forms.RichTextBox();
-            this.lblSelectedAnswer = new System.Windows.Forms.Label();
+            this.ResumeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PurgeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -77,54 +79,58 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.文件ToolStripMenuItem,
-            this.操作ToolStripMenuItem,
-            this.关于ToolStripMenuItem});
+            this.FileToolStripMenuItem,
+            this.EditToolStripMenuItem,
+            this.HelpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(766, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // 文件ToolStripMenuItem
+            // FileToolStripMenuItem
             // 
-            this.文件ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SaveToolStripMenuItem,
+            this.ResumeToolStripMenuItem,
+            this.PurgeToolStripMenuItem,
             this.ExitToolStripMenuItem});
-            this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
-            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.文件ToolStripMenuItem.Text = "文件";
+            this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
+            this.FileToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.FileToolStripMenuItem.Text = "文件";
             // 
             // SaveToolStripMenuItem
             // 
             this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
-            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.SaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.SaveToolStripMenuItem.Text = "保存";
             this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ExitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.ExitToolStripMenuItem.Text = "退出";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
-            // 操作ToolStripMenuItem
+            // EditToolStripMenuItem
             // 
-            this.操作ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.EditToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.NewQuestionnaireToolStripMenuItem,
             this.FillAnswerToolStripMenuItem,
-            this.undoToolStripMenuItem,
+            this.UndoToolStripMenuItem,
             this.StatisticToolStripMenuItem});
-            this.操作ToolStripMenuItem.Name = "操作ToolStripMenuItem";
-            this.操作ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.操作ToolStripMenuItem.Text = "操作";
+            this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
+            this.EditToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.EditToolStripMenuItem.Text = "操作";
             // 
             // NewQuestionnaireToolStripMenuItem
             // 
             this.NewQuestionnaireToolStripMenuItem.Name = "NewQuestionnaireToolStripMenuItem";
-            this.NewQuestionnaireToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.NewQuestionnaireToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.NewQuestionnaireToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
+            this.NewQuestionnaireToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.NewQuestionnaireToolStripMenuItem.Text = "新建问卷";
             this.NewQuestionnaireToolStripMenuItem.Click += new System.EventHandler(this.NewQuestionnaireToolStripMenuItem_Click);
             // 
@@ -132,39 +138,39 @@
             // 
             this.FillAnswerToolStripMenuItem.Name = "FillAnswerToolStripMenuItem";
             this.FillAnswerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.FillAnswerToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.FillAnswerToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.FillAnswerToolStripMenuItem.Text = "录入";
             this.FillAnswerToolStripMenuItem.Click += new System.EventHandler(this.FillAnswerToolStripMenuItem_Click);
             // 
-            // undoToolStripMenuItem
+            // UndoToolStripMenuItem
             // 
-            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.undoToolStripMenuItem.Text = "撤销";
-            this.undoToolStripMenuItem.Click += new System.EventHandler(this.UndoToolStripMenuItem_Click);
+            this.UndoToolStripMenuItem.Name = "UndoToolStripMenuItem";
+            this.UndoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+            this.UndoToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.UndoToolStripMenuItem.Text = "撤销";
+            this.UndoToolStripMenuItem.Click += new System.EventHandler(this.UndoToolStripMenuItem_Click);
             // 
             // StatisticToolStripMenuItem
             // 
             this.StatisticToolStripMenuItem.Name = "StatisticToolStripMenuItem";
-            this.StatisticToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.StatisticToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.StatisticToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.StatisticToolStripMenuItem.Text = "统计";
             this.StatisticToolStripMenuItem.Click += new System.EventHandler(this.StatisticToolStripMenuItem_Click);
             // 
-            // 关于ToolStripMenuItem
+            // HelpToolStripMenuItem
             // 
-            this.关于ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.关于ToolStripMenuItem1});
-            this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.关于ToolStripMenuItem.Text = "帮助";
+            this.HelpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AboutToolStripMenuItem1});
+            this.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem";
+            this.HelpToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.HelpToolStripMenuItem.Text = "帮助";
             // 
-            // 关于ToolStripMenuItem1
+            // AboutToolStripMenuItem1
             // 
-            this.关于ToolStripMenuItem1.Name = "关于ToolStripMenuItem1";
-            this.关于ToolStripMenuItem1.Size = new System.Drawing.Size(98, 22);
-            this.关于ToolStripMenuItem1.Text = "关于";
+            this.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1";
+            this.AboutToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.AboutToolStripMenuItem1.Text = "关于";
             // 
             // MainPanel
             // 
@@ -197,24 +203,24 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "nodeQN1_Fill";
-            treeNode1.Text = "录入";
-            treeNode2.Name = "nodeQN1_Clear";
-            treeNode2.Text = "清空";
-            treeNode3.Name = "nodeQN1_BossMgr";
-            treeNode3.Text = "领导管理";
-            treeNode4.Name = "nodeQN1_BranchMgr";
-            treeNode4.Text = "分行管理";
-            treeNode5.Name = "nodeQN1";
-            treeNode5.Text = "支行领导班子民主测评统计表";
-            treeNode6.Name = "nodeQN2";
-            treeNode6.Text = "支行领导班子成员民主测评统计表";
-            treeNode7.Name = "nodeQN3";
-            treeNode7.Text = "巡察工作调查问卷";
-            treeNode8.Name = "nodeRoot";
-            treeNode8.Text = "农商银行问卷调查统计系统";
+            treeNode33.Name = "nodeQN1_Fill";
+            treeNode33.Text = "录入";
+            treeNode34.Name = "nodeQN1_Clear";
+            treeNode34.Text = "清空";
+            treeNode35.Name = "nodeQN1_BossMgr";
+            treeNode35.Text = "领导管理";
+            treeNode36.Name = "nodeQN1_BranchMgr";
+            treeNode36.Text = "分行管理";
+            treeNode37.Name = "nodeQN1";
+            treeNode37.Text = "支行领导班子民主测评统计表";
+            treeNode38.Name = "nodeQN2";
+            treeNode38.Text = "支行领导班子成员民主测评统计表";
+            treeNode39.Name = "nodeQN3";
+            treeNode39.Text = "巡察工作调查问卷";
+            treeNode40.Name = "nodeRoot";
+            treeNode40.Text = "农商银行问卷调查统计系统";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode8});
+            treeNode40});
             this.treeView1.Size = new System.Drawing.Size(239, 394);
             this.treeView1.TabIndex = 0;
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
@@ -243,6 +249,33 @@
             this.splitContainer2.SplitterDistance = 91;
             this.splitContainer2.TabIndex = 0;
             // 
+            // lblSelectedAnswer
+            // 
+            this.lblSelectedAnswer.Location = new System.Drawing.Point(352, 11);
+            this.lblSelectedAnswer.Name = "lblSelectedAnswer";
+            this.lblSelectedAnswer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblSelectedAnswer.Size = new System.Drawing.Size(159, 68);
+            this.lblSelectedAnswer.TabIndex = 4;
+            this.lblSelectedAnswer.Text = "label1";
+            // 
+            // labelQuestionnaireIndex
+            // 
+            this.labelQuestionnaireIndex.AutoSize = true;
+            this.labelQuestionnaireIndex.Location = new System.Drawing.Point(12, 35);
+            this.labelQuestionnaireIndex.Name = "labelQuestionnaireIndex";
+            this.labelQuestionnaireIndex.Size = new System.Drawing.Size(35, 13);
+            this.labelQuestionnaireIndex.TabIndex = 3;
+            this.labelQuestionnaireIndex.Text = "label1";
+            // 
+            // labelQuestionnaireName
+            // 
+            this.labelQuestionnaireName.AutoSize = true;
+            this.labelQuestionnaireName.Location = new System.Drawing.Point(12, 11);
+            this.labelQuestionnaireName.Name = "labelQuestionnaireName";
+            this.labelQuestionnaireName.Size = new System.Drawing.Size(35, 13);
+            this.labelQuestionnaireName.TabIndex = 2;
+            this.labelQuestionnaireName.Text = "label1";
+            // 
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -262,24 +295,6 @@
             this.labelAnswer.TabIndex = 0;
             this.labelAnswer.Text = "答案：";
             // 
-            // labelQuestionnaireName
-            // 
-            this.labelQuestionnaireName.AutoSize = true;
-            this.labelQuestionnaireName.Location = new System.Drawing.Point(12, 11);
-            this.labelQuestionnaireName.Name = "labelQuestionnaireName";
-            this.labelQuestionnaireName.Size = new System.Drawing.Size(35, 13);
-            this.labelQuestionnaireName.TabIndex = 2;
-            this.labelQuestionnaireName.Text = "label1";
-            // 
-            // labelQuestionnaireIndex
-            // 
-            this.labelQuestionnaireIndex.AutoSize = true;
-            this.labelQuestionnaireIndex.Location = new System.Drawing.Point(12, 35);
-            this.labelQuestionnaireIndex.Name = "labelQuestionnaireIndex";
-            this.labelQuestionnaireIndex.Size = new System.Drawing.Size(35, 13);
-            this.labelQuestionnaireIndex.TabIndex = 3;
-            this.labelQuestionnaireIndex.Text = "label1";
-            // 
             // richTxtQuestion
             // 
             this.richTxtQuestion.BackColor = System.Drawing.SystemColors.Window;
@@ -293,14 +308,19 @@
             this.richTxtQuestion.TabIndex = 1;
             this.richTxtQuestion.Text = "";
             // 
-            // lblSelectedAnswer
+            // ResumeToolStripMenuItem
             // 
-            this.lblSelectedAnswer.Location = new System.Drawing.Point(352, 11);
-            this.lblSelectedAnswer.Name = "lblSelectedAnswer";
-            this.lblSelectedAnswer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblSelectedAnswer.Size = new System.Drawing.Size(159, 68);
-            this.lblSelectedAnswer.TabIndex = 4;
-            this.lblSelectedAnswer.Text = "label1";
+            this.ResumeToolStripMenuItem.Name = "ResumeToolStripMenuItem";
+            this.ResumeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.ResumeToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.ResumeToolStripMenuItem.Text = "继续上次输入";
+            // 
+            // PurgeToolStripMenuItem
+            // 
+            this.PurgeToolStripMenuItem.Name = "PurgeToolStripMenuItem";
+            this.PurgeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.PurgeToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.PurgeToolStripMenuItem.Text = "全部清空";
             // 
             // MainForm
             // 
@@ -333,14 +353,14 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 文件ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SaveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 操作ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EditToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem NewQuestionnaireToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FillAnswerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem UndoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem HelpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem1;
         private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
@@ -353,6 +373,8 @@
         private System.Windows.Forms.Label labelQuestionnaireIndex;
         private System.Windows.Forms.RichTextBox richTxtQuestion;
         private System.Windows.Forms.Label lblSelectedAnswer;
+        private System.Windows.Forms.ToolStripMenuItem ResumeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PurgeToolStripMenuItem;
     }
 }
 
