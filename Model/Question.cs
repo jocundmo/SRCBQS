@@ -21,7 +21,7 @@ namespace SRCBQuestionnaireStatistic.Model
         public string Subject { get { return string.Format("{0}.{1}", Title, Subtitle); } }
         public AnswerList AvailableAnswers { get; set; }
         public Answer SelectedAnswer { get; set; }
-
+        public Questionnaire Questionnaire { get; private set; }
         //public FillAnswerCommand FillAnswerCommand;
 
         private Question()
@@ -35,7 +35,7 @@ namespace SRCBQuestionnaireStatistic.Model
         //    FillAnswerCommand.Do();
         //}
 
-        public static Question MakeNew(int index, Typee questionType, string title, string subtitle)
+        public static Question MakeNew(int index, Typee questionType, string title, string subtitle, Questionnaire qn)
         {
             Question q = new Question();
             q.Index = index;
@@ -44,10 +44,11 @@ namespace SRCBQuestionnaireStatistic.Model
             q.QuestionType = questionType;
             q.AvailableAnswers = new AnswerList();
             q.SelectedAnswer = Answer.Empty;
+            q.Questionnaire = qn;
             return q;
         }
 
-        public Question MakeCopy()
+        public Question MakeCopy(Questionnaire qn)
         {
             Question q = new Question();
             q.Index = this.Index;
@@ -56,6 +57,7 @@ namespace SRCBQuestionnaireStatistic.Model
             q.QuestionType = this.QuestionType;
             q.AvailableAnswers = this.AvailableAnswers.MakeCopy();
             q.SelectedAnswer = Answer.Empty;
+            q.Questionnaire = qn;
             return q;
         }
     }

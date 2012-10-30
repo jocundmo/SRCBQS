@@ -28,7 +28,7 @@ namespace SRCBQuestionnaireStatistic
             return result;
         }
 
-        internal static Model.Answer.Symbol ConvertToSymbol(string sym)
+        public static Model.Answer.Symbol ConvertToSymbol(string sym)
         {
             switch (sym)
             {
@@ -47,7 +47,7 @@ namespace SRCBQuestionnaireStatistic
             }
         }
 
-        internal static Model.Question.Typee ConvertToTypee(string type)
+        public static Model.Question.Typee ConvertToTypee(string type)
         {
             switch (type)
             {
@@ -60,7 +60,7 @@ namespace SRCBQuestionnaireStatistic
             }
         }
 
-        internal static Model.Answer.Symbol ConvertToSymbol(int index)
+        public static Model.Answer.Symbol ConvertToSymbol(int index)
         {
             switch (index)
             {
@@ -77,6 +77,61 @@ namespace SRCBQuestionnaireStatistic
                 default:
                     throw new NotSupportedException(string.Format("{0} is not supported", index));
             }
+        }
+
+        public static int MoreCharToInt(string value)
+        {
+            int rtn = 0;
+            int powIndex = 0;
+
+            for (int i = value.Length - 1; i >= 0; i--)
+            {
+                int tmpInt = value[i];
+                tmpInt -= 64;
+
+                rtn += (int)Math.Pow(26, powIndex) * tmpInt;
+                powIndex++;
+            }
+
+            return rtn;
+        }
+
+        public static string IntToMoreChar(int value)
+        {
+            string rtn = string.Empty;
+            List<int> iList = new List<int>();
+
+            //To single Int
+            while (value / 26 != 0 || value % 26 != 0)
+            {
+                iList.Add(value % 26);
+                value /= 26;
+            }
+
+            //Change 0 To 26
+            for (int j = 0; j < iList.Count - 1; j++)
+            {
+                if (iList[j] == 0)
+                {
+                    iList[j + 1] -= 1;
+                    iList[j] = 26;
+                }
+            }
+
+            //Remove 0 at last
+            if (iList[iList.Count - 1] == 0)
+            {
+                iList.Remove(iList[iList.Count - 1]);
+            }
+
+            //To String
+            for (int j = iList.Count - 1; j >= 0; j--)
+            {
+                char c = (char)(iList[j] + 64);
+                rtn += c.ToString();
+            }
+
+            return rtn;
         }
     }
 }

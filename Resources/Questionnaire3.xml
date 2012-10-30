@@ -1,0 +1,97 @@
+﻿<Questionnaire IsBossManager="true" IsBranchManager="true">
+  <Subject>巡察工作调查问卷
+  </Subject>
+  <Description>
+    填写说明：
+    1、对卷中所列问题，您可完全依据自己的理解和想法回答，不要有任何顾虑，对您的回答我们会严格保密。
+    2、请您注意每个题目的填写规定，并在符合您情况或意见的选项前的“□”内打“√”，注意不要有遗漏。
+	3、题目中涉及“您单位”的，是指您所在的一级分支行；涉及“领导班子”及“领导干部”的，是指您所在一级分支行的领导班子及班子成员。
+	您的身份：
+	1、□分支行班子成员  □分支行部门正副经理  □分支行部门员工  □二级支行正副行长  □二级支行员工
+	2、政治面貌：□中共党员  □民主党派  □共青团员  □群众
+	3、年龄：□35周岁以下  □35-50周岁  □50周岁以上
+  </Description>
+  <Bosses>
+    <Boss Name="" Position=""></Boss>
+    <Boss Name="" Position=""></Boss>
+    <Boss Name="" Position=""></Boss>
+    <Boss Name="" Position=""></Boss>
+    <Boss Name="" Position=""></Boss>
+  </Bosses>
+  <Branches>
+    <Branch Name="" Location=""></Branch>
+    <Branch Name="" Location=""></Branch>
+    <Branch Name="" Location=""></Branch>
+    <Branch Name="" Location=""></Branch>
+  </Branches>
+  <Questions>
+    <Question Type="SingleChoice">
+      <Title>您单位领导班子在贯彻落实总行发展战略、重大决策和工作部署方面做得如何？(限选一项)</Title>
+      <Subtitle></Subtitle>
+      <Answers>
+        <Answer>
+          <Symbol>A</Symbol>
+          <Text>及时传达布置，认真贯彻执行，制定符合自身实际的工作措施并狠抓落实。</Text>
+        </Answer>
+        <Answer>
+          <Symbol>B</Symbol>
+          <Text>能够及时传达布置上级精神，但总行要求做什么就做什么，缺少符合自身实际的工作举措。</Text>
+        </Answer>
+        <Answer>
+          <Symbol>C</Symbol>
+          <Text>总体上贯彻落实和工作推进不够有力。</Text>
+        </Answer>
+        <Answer>
+          <Symbol>D</Symbol>
+          <Text>不太清楚</Text>
+        </Answer>
+      </Answers>
+    </Question>
+    <Question Type="MultipleChoices">
+      <Title>您单位在调结构、促转型，推动“九个转变”过程中面临的主要困难和问题有哪些？(可多选)</Title>
+      <Subtitle></Subtitle>
+      <Answers>
+        <Answer>
+          <Symbol>A</Symbol>
+          <Text>单位领导班子思想认识不到位，态度不坚决。</Text>
+        </Answer>
+        <Answer>
+          <Symbol>B</Symbol>
+          <Text>基层干部员工畏难抵触，考虑眼前利益多，考虑长远发展少。</Text>
+        </Answer>
+        <Answer>
+          <Symbol>C</Symbol>
+          <Text>有一定的思想认识，但缺少切实有效的思路办法。</Text>
+        </Answer>
+        <Answer>
+          <Symbol>D</Symbol>
+          <Text>总行部门、条线指导、支持、推动力度不够。</Text>
+        </Answer>
+		<Answer>
+          <Symbol>E</Symbol>
+          <Text>现有人才队伍素质不适应</Text>
+        </Answer>
+		<Answer>
+          <Symbol>F</Symbol>
+          <Text>考核激励机制不配套</Text>
+        </Answer>
+		<Answer>
+          <Symbol>G</Symbol>
+          <Text>产品创新不够，缺少市场竞争力</Text>
+        </Answer>
+		<Answer>
+          <Symbol>H</Symbol>
+          <Text>技术支撑手段落后</Text>
+        </Answer>
+		<Answer>
+          <Symbol>I</Symbol>
+          <Text>缺少品牌效应</Text>
+        </Answer>
+		<Answer>
+          <Symbol>J</Symbol>
+          <Text>其他</Text>
+        </Answer>
+      </Answers>
+    </Question>
+  </Questions>
+</Questionnaire>

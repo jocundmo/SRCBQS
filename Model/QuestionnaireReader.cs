@@ -23,7 +23,7 @@ namespace SRCBQuestionnaireStatistic.Model
         {
             this.index = index;
         }
-        public bool Read()
+        public bool ReadNext()
         {
             index++;
             bool isNext = index < Entity.Questions.Count;

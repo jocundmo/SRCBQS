@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using SRCBQuestionnaireStatistic.Model;
 using SRCBQuestionnaireStatistic.Command;
+using System.IO;
 
 namespace SRCBQuestionnaireStatistic
 {
@@ -25,35 +26,36 @@ namespace SRCBQuestionnaireStatistic
         #region Events
         private void NewQuestionnaireToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Should be copy.
             Questionnaire qn = currentQNReader.Entity.MakeCopy();
             availableQNs.Add(qn);
             currentQNReader = new QuestionnaireReader(qn);
-            //FillAnswer(2);
-            //while (true)
-            //{
-            //    FillAnswer(2);
-            //}
+
+            if (currentQNReader.ReadNext())
+            {
+                PopulateQuestionUI(currentQNReader.Question);
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Questionnaire qn = Questionnaire.MakeNew(@"D:\SourceRoot\SRCBQS\Resources\Questionnaire1.xml");
-            availableQNs.Add(qn);
-            currentQNReader = new QuestionnaireReader(qn);
+            string[] filenames = Directory.GetFiles(@"..\..\Resources", "*.xml");
+            int index = 0;
+            foreach (string filename in filenames)
+            {
+                Questionnaire qn = Questionnaire.MakeNew(filename);
+                if (index == 0)
+                    currentQNReader = new QuestionnaireReader(qn);
+                availableQNs.Add(qn);
+                index++;
+            }
+            
+            InitializeTreeView(availableQNs);
         }
-
-        private void comboBoxAnswer_SelectedIndexChanged(object sender, EventArgs e)
+        
+        private void ComboBoxAnswer_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FillAnswer(((ComboBox)sender).SelectedIndex);
-            if (currentQNReader.Read())
-            {
-                PopulateQuestion(currentQNReader.Question);
-            }
-            else
-            {
-                ClearQuestionUI();
-            }
+            int index = ((ComboBox)sender).SelectedIndex;
+            FillAnswerAndPopulateNext(index);
         }
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -114,7 +116,7 @@ namespace SRCBQuestionnaireStatistic
             }
         }
 
-        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UndoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (cmdStack.Count <= 0)
             {
@@ -124,20 +126,107 @@ namespace SRCBQuestionnaireStatistic
             FillAnswerCommand cmd = (FillAnswerCommand)cmdStack.Pop();
             cmd.Undo();
             currentQNReader.SetIndex(cmd.Question.Index);
-            PopulateQuestion(cmd.Question);
+            PopulateQuestionUI(cmd.Question);
         }
 
         private void FillAnswerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (currentQNReader.Read())
+            if (currentQNReader.ReadNext())
             {
-                PopulateQuestion(currentQNReader.Question);
+                PopulateQuestionUI(currentQNReader.Question);
             }
+        }
+
+        private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int index = int.Parse(e.KeyChar.ToString()) - 1;
+            FillAnswerAndPopulateNext(index);
+            //suppressEvent = true;
+            //int loop = 0;
+            //foreach (Answer selected in comboBox1.Items)
+            //{
+            //    if (selected.Sym == Utility.ConvertToSymbol(index))
+            //    {
+            //        comboBox1.SelectedIndex = loop;
+            //        break;
+            //    }
+
+            //    loop++;
+            //}
+            //suppressEvent = false;
+        }
+
+        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (e.Node.Name.StartsWith("root"))
+                return;
+            Questionnaire qn = null;
+            if (e.Node.Name.StartsWith("qn_"))
+            {
+                qn = availableQNs[e.Node.Index];
+            }
+            else if (e.Node.Name.StartsWith("menu_node_"))
+            {
+                qn = availableQNs[e.Node.Parent.Index]; // There is a bug, cannot direct select from AvailableQN since the questionnaire index is not correct.
+            }
+
+            if (qn.IsQuestionnaireFinished())
+            {
+                ClearQuestionUI();
+            }
+            else
+            {
+                currentQNReader = new QuestionnaireReader(qn);
+                if (currentQNReader.ReadNext())
+                {
+                    PopulateQuestionUI(currentQNReader.Question);
+                }
+            }
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         #endregion
 
         #region Methods
+
+        private void InitializeTreeView(List<Questionnaire> qns)
+        {
+            treeView1.Nodes.Clear();
+            TreeNode rootNode = treeView1.Nodes.Add("rootNode", "农商银行问卷调查统计系统");
+            foreach (Questionnaire qn in qns)
+            {
+                TreeNode nodeQN = rootNode.Nodes.Add("qn_node_" + qn.Id, qn.Subject);
+                nodeQN.Nodes.Add("menu_node_" + qn.Id + "_Fill", "录入");
+                nodeQN.Nodes.Add("menu_node_" + qn.Id + "_Clear", "清空");
+
+                if (qn.IsBossManager)
+                    nodeQN.Nodes.Add("menu_node_" + qn.Id + "_BossManager", "领导管理");
+                if (qn.IsBranchManager)
+                    nodeQN.Nodes.Add("menu_node_" + qn.Id + "_BranchManager", "支行管理");
+            }
+
+            treeView1.ExpandAll();
+            treeView1.SelectedNode = treeView1.Nodes[0].Nodes[0];
+        }
+
+        private void FillAnswerAndPopulateNext(int index)
+        {
+            FillAnswer(index);
+            this.lblSelectedAnswer.Text = string.Format("您上一题选择了：{0}", currentQNReader.Question.SelectedAnswer.FullText);
+            if (currentQNReader.ReadNext())
+            {
+                PopulateQuestionUI(currentQNReader.Question);
+            }
+            else
+            {
+                ClearQuestionUI();
+                this.lblSelectedAnswer.Text = string.Empty;
+            }
+        }
         private void FillAnswer(int index)
         {
             Question q = currentQNReader.Question;
@@ -147,16 +236,19 @@ namespace SRCBQuestionnaireStatistic
             cmdStack.Push(cmd);
         }
 
-        private void ClearQuestionUI()
-        {
-            this.labelQuestion.Text = string.Empty;
-            this.comboBox1.Items.Clear();
-        }
+        //private void PopulateQuestionnaireUI(Questionnaire qn)
+        //{
+        //    labelQuestionnaireName.Text = qn.Subject;
+        //}
 
-        private void PopulateQuestion(Question q)
+        private void PopulateQuestionUI(Question q)
         {
-            labelQuestion.Text = q.Title + Environment.NewLine + q.Subtitle;
+            labelQuestionnaireIndex.Text = string.Format("第 {0} 份", q.Questionnaire.Index);
+            labelQuestionnaireName.Text = q.Questionnaire.Subject;
+            //lblSelectedAnswer.Text = q.SelectedAnswer.FullText;
+            this.richTxtQuestion.Text = q.Title + Environment.NewLine + q.Subtitle;
             this.comboBox1.Items.Clear();
+            this.comboBox1.Enabled = true;
             this.comboBox1.DisplayMember = "FullText";
             this.comboBox1.ValueMember = "Sym";
             //this.comboBox1.DataSource = qn.Questions[0].AvailableAnswers;
@@ -167,6 +259,15 @@ namespace SRCBQuestionnaireStatistic
             }
             //this.comboBox1.Items.Insert(0, Answer.Empty);
             this.comboBox1.Items.AddRange(list);
+        }
+
+        private void ClearQuestionUI()
+        {
+            this.richTxtQuestion.Text = string.Empty;
+            this.labelQuestionnaireIndex.Text = "已经完成了";
+            this.lblSelectedAnswer.Text = "na";
+            this.comboBox1.Items.Clear();
+            this.comboBox1.Enabled = false;
         }
 
         private void SaveStatistic(List<Questionnaire> availableQNs)
@@ -201,8 +302,7 @@ namespace SRCBQuestionnaireStatistic
 
             result.WriteXml(@"C:\abc.xml");
         }
-        #endregion
 
-        
+        #endregion
     }
 }

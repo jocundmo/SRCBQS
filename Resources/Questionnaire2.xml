@@ -1,0 +1,134 @@
+﻿<Questionnaire IsBossManager="false" IsBranchManager="true">
+  <Subject>支行领导班子成员民主测评统计表
+  </Subject>
+  <Description>
+    填表说明：
+    1、本表对支行领导班子成员情况进行评价，需现场收回。
+    2、每个栏目中的【A】优秀、【B】良好、【C】一般、【D】较差。各选项只能选一项，然后在相应的【 】中打钩。
+  </Description>
+  <Bosses>
+    <Boss Name="" Position=""></Boss>
+    <Boss Name="" Position=""></Boss>
+    <Boss Name="" Position=""></Boss>
+    <Boss Name="" Position=""></Boss>
+    <Boss Name="" Position=""></Boss>
+  </Bosses>
+  <Branches>
+    <Branch Name="" Location=""></Branch>
+    <Branch Name="" Location=""></Branch>
+    <Branch Name="" Location=""></Branch>
+    <Branch Name="" Location=""></Branch>
+  </Branches>
+  <Questions>
+    <Question Type="SingleChoice">
+      <Title>政治建设</Title>
+      <Subtitle>政治态度</Subtitle>
+      <Answers>
+        <Answer>
+          <Symbol>A</Symbol>
+          <Text>优秀</Text>
+        </Answer>
+        <Answer>
+          <Symbol>B</Symbol>
+          <Text>良好</Text>
+        </Answer>
+        <Answer>
+          <Symbol>C</Symbol>
+          <Text>一般</Text>
+        </Answer>
+        <Answer>
+          <Symbol>D</Symbol>
+          <Text>较差</Text>
+        </Answer>
+      </Answers>
+    </Question>
+    <Question Type="SingleChoice">
+      <Title>政治建设</Title>
+      <Subtitle>落实科学发展观</Subtitle>
+      <Answers>
+        <Answer>
+          <Symbol>A</Symbol>
+          <Text>优秀</Text>
+        </Answer>
+        <Answer>
+          <Symbol>B</Symbol>
+          <Text>良好</Text>
+        </Answer>
+        <Answer>
+          <Symbol>C</Symbol>
+          <Text>一般</Text>
+        </Answer>
+        <Answer>
+          <Symbol>D</Symbol>
+          <Text>较差</Text>
+        </Answer>
+      </Answers>
+    </Question>
+    <Question Type="SingleChoice">
+      <Title>政治建设</Title>
+      <Subtitle>执行民主集中制</Subtitle>
+      <Answers>
+        <Answer>
+          <Symbol>A</Symbol>
+          <Text>优秀</Text>
+        </Answer>
+        <Answer>
+          <Symbol>B</Symbol>
+          <Text>良好</Text>
+        </Answer>
+        <Answer>
+          <Symbol>C</Symbol>
+          <Text>一般</Text>
+        </Answer>
+        <Answer>
+          <Symbol>D</Symbol>
+          <Text>较差</Text>
+        </Answer>
+      </Answers>
+    </Question>
+    <Question Type="SingleChoice">
+      <Title>政治建设</Title>
+      <Subtitle>落实科学发展观</Subtitle>
+      <Answers>
+        <Answer>
+          <Symbol>A</Symbol>
+          <Text>优秀</Text>
+        </Answer>
+        <Answer>
+          <Symbol>B</Symbol>
+          <Text>良好</Text>
+        </Answer>
+        <Answer>
+          <Symbol>C</Symbol>
+          <Text>一般</Text>
+        </Answer>
+        <Answer>
+          <Symbol>D</Symbol>
+          <Text>较差</Text>
+        </Answer>
+      </Answers>
+    </Question>
+    <Question Type="SingleChoice">
+      <Title>政治建设</Title>
+      <Subtitle>思想品质</Subtitle>
+      <Answers>
+        <Answer>
+          <Symbol>A</Symbol>
+          <Text>优秀</Text>
+        </Answer>
+        <Answer>
+          <Symbol>B</Symbol>
+          <Text>良好</Text>
+        </Answer>
+        <Answer>
+          <Symbol>C</Symbol>
+          <Text>一般</Text>
+        </Answer>
+        <Answer>
+          <Symbol>D</Symbol>
+          <Text>较差</Text>
+        </Answer>
+      </Answers>
+    </Question>
+  </Questions>
+</Questionnaire>

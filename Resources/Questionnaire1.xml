@@ -1,4 +1,4 @@
-﻿<Questionnaire>
+﻿<Questionnaire IsBossManager="true" IsBranchManager="true">
   <Subject>支行领导班子民主测评统计表
   </Subject>
   <Description>
@@ -22,7 +22,7 @@
   </Branches>
   <Questions>
     <Question Type="SingleChoice">
-      <Title>111对贯彻执行党的路线方针政策和总行发展战略、重大决策、工作部署情况的评价</Title>
+      <Title>对贯彻执行党的路线方针政策和总行发展战略、重大决策、工作部署情况的评价</Title>
       <Subtitle></Subtitle>
       <Answers>
         <Answer>
@@ -44,7 +44,7 @@
       </Answers>
     </Question>
     <Question>
-      <Title>222对贯彻执行民主集中制、落实“三重一大”决策制度情况的评价</Title>
+      <Title>对贯彻执行民主集中制、落实“三重一大”决策制度情况的评价</Title>
       <Subtitle></Subtitle>
       <Answers>
         <Answer Type="SingleChoice">
