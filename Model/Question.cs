@@ -8,18 +8,25 @@ namespace SRCBQuestionnaireStatistic.Model
 {
     public class Question
     {
+        public enum Typee
+        {
+            SingleChoice,
+            MultipleChoices
+        }
+
+        public int Index { get; set; }
         public string Title { get; set; }
         public string Subtitle { get; set; }
-
+        public Typee QuestionType { get; set; }
         public string Subject { get { return string.Format("{0}.{1}", Title, Subtitle); } }
         public AnswerList AvailableAnswers { get; set; }
         public Answer SelectedAnswer { get; set; }
 
-        public FillAnswerCommand FillAnswerCommand;
+        //public FillAnswerCommand FillAnswerCommand;
 
         private Question()
         {
-            FillAnswerCommand = new FillAnswerCommand(this);
+            //FillAnswerCommand = new FillAnswerCommand(this);
         }
 
         //public void FillAnswer(Answer.Symbol answerSym)
@@ -28,22 +35,27 @@ namespace SRCBQuestionnaireStatistic.Model
         //    FillAnswerCommand.Do();
         //}
 
-        internal Question MakeNew(string title, string subtitle)
+        public static Question MakeNew(int index, Typee questionType, string title, string subtitle)
         {
             Question q = new Question();
+            q.Index = index;
             q.Title = title;
             q.Subtitle = subtitle;
+            q.QuestionType = questionType;
             q.AvailableAnswers = new AnswerList();
             q.SelectedAnswer = Answer.Empty;
             return q;
         }
 
-        internal Question MakeCopy()
+        public Question MakeCopy()
         {
             Question q = new Question();
+            q.Index = this.Index;
             q.Title = this.Title;
             q.Subtitle = this.Subtitle;
-
+            q.QuestionType = this.QuestionType;
+            q.AvailableAnswers = this.AvailableAnswers.MakeCopy();
+            q.SelectedAnswer = Answer.Empty;
             return q;
         }
     }

@@ -1,1 +1,69 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<Questionnaire>
+  <Subject>支行领导班子民主测评统计表
+  </Subject>
+  <Description>
+    填表说明：\r\n
+    1、本表对支行领导班子建设和工作情况进行评价，需现场收回。\r\n
+    2、每个栏目中【A】很满意、【B】满意、【C】基本满意、【D】不满意。各选项中只能选一项，然后在相应的【 】中打钩。\r\n
+    3、填写过程中，如对某方面评价表示了“不满意”，则最后“总体评价”一般不填“很满意”；如出现两个方面以上“基本满意”，“总体评价”一般也不填“很满意”。
+  </Description>
+  <Bosses>
+    <Boss Name="" Position=""></Boss>
+    <Boss Name="" Position=""></Boss>
+    <Boss Name="" Position=""></Boss>
+    <Boss Name="" Position=""></Boss>
+    <Boss Name="" Position=""></Boss>
+  </Bosses>
+  <Branches>
+    <Branch Name="" Location=""></Branch>
+    <Branch Name="" Location=""></Branch>
+    <Branch Name="" Location=""></Branch>
+    <Branch Name="" Location=""></Branch>
+  </Branches>
+  <Questions>
+    <Question Type="SingleChoice">
+      <Title>111对贯彻执行党的路线方针政策和总行发展战略、重大决策、工作部署情况的评价</Title>
+      <Subtitle></Subtitle>
+      <Answers>
+        <Answer>
+          <Symbol>A</Symbol>
+          <Text>很满意</Text>
+        </Answer>
+        <Answer>
+          <Symbol>B</Symbol>
+          <Text>满意</Text>
+        </Answer>
+        <Answer>
+          <Symbol>C</Symbol>
+          <Text>基本满意</Text>
+        </Answer>
+        <Answer>
+          <Symbol>D</Symbol>
+          <Text>不满意</Text>
+        </Answer>
+      </Answers>
+    </Question>
+    <Question>
+      <Title>222对贯彻执行民主集中制、落实“三重一大”决策制度情况的评价</Title>
+      <Subtitle></Subtitle>
+      <Answers>
+        <Answer Type="SingleChoice">
+          <Symbol>A</Symbol>
+          <Text>很满意</Text>
+        </Answer>
+        <Answer>
+          <Symbol>B</Symbol>
+          <Text>满意</Text>
+        </Answer>
+        <Answer>
+          <Symbol>C</Symbol>
+          <Text>基本满意</Text>
+        </Answer>
+        <Answer>
+          <Symbol>D</Symbol>
+          <Text>不满意</Text>
+        </Answer>
+      </Answers>
+    </Question>
+  </Questions>
+</Questionnaire>

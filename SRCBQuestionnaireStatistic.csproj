@@ -47,11 +47,11 @@
     <Compile Include="Command\CommandStack.cs" />
     <Compile Include="Command\FillAnswerCommand.cs" />
     <Compile Include="Command\ICommand.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Answer.cs" />
     <Compile Include="Model\AnswerList.cs" />
@@ -62,8 +62,13 @@
     <Compile Include="Model\Question.cs" />
     <Compile Include="Model\QuestionList.cs" />
     <Compile Include="Model\Questionnaire.cs" />
+    <Compile Include="Model\QuestionnaireReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

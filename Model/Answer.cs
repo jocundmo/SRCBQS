@@ -7,12 +7,6 @@ namespace SRCBQuestionnaireStatistic.Model
 {
     public class Answer
     {
-        public enum Type
-        {
-            SingleChoice,
-            MultipleChoices
-        }
-
         public enum Symbol
         {
             None,
@@ -30,9 +24,26 @@ namespace SRCBQuestionnaireStatistic.Model
         public string Text { get; set; }
         public Symbol Sym { get; set; }
 
+        private Answer()
+        {
+        }
+
+        public static Answer MakeNew(string text, Symbol sym)
+        {
+            Answer a = new Answer();
+            a.Text = text;
+            a.Sym = sym;
+            return a;
+        }
+
+        public string FullText
+        {
+            get { return string.Format("{0}. {1}", Sym, Text); }
+        }
+
         public override string ToString()
         {
-            return string.Format("{0}. {1}", Sym, Text);
+            return FullText;
         }
 
         public static Answer Empty 
@@ -40,6 +51,14 @@ namespace SRCBQuestionnaireStatistic.Model
             get { 
                 return new Answer() { Sym = Symbol.None, Text = string.Empty };
             }
+        }
+
+        public Answer MakeCopy()
+        {
+            Answer a = new Answer();
+            a.Text = this.Text;
+            a.Sym = this.Sym;
+            return a;
         }
     }
 }
